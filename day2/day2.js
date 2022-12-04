@@ -1,6 +1,8 @@
+//This is the uglyest and fastest (in terms of running time) solution I was able
+//come up with. I had a more readable solution but did not save it.
+//I might recode the previous solution in the future.
+
 const fs = require('fs');
-
-
 const data = fs.readFileSync('data.txt', 'UTF-8')
 const lines = data.split(/\r?\n/)
 console.time("Timer");
