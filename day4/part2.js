@@ -2,12 +2,12 @@ const fs = require('fs');
 var path = require('path');
 
 //Relative path to data.txt
-const dataPath = path.join(__dirname, '..', 'day4', 'data.txt');
+const dataPath = path.join(__dirname, 'data.txt');
 const pairsOfElves = fs.readFileSync(dataPath, 'UTF-8').split(/\r?\n/)
 
 var uselessElves = 0;
 console.time('timer');
-for(let i = 0; i < pairsOfElves.length; i++){
+for (let i = 0; i < pairsOfElves.length; i++) {
     const pair = pairsOfElves[i].split(',');
     const firstElfArea = pair[0].split('-');
     const secondElfArea = pair[1].split('-');
@@ -17,10 +17,10 @@ for(let i = 0; i < pairsOfElves.length; i++){
     const secondElfEnd = Number(secondElfArea[1]);
 
     //Instead of checking all overlaps, check not overlaps
-    if(firstElfEnd < secondElfStart){
+    if (firstElfEnd < secondElfStart) {
         continue;
     }
-    if(secondElfEnd < firstElfStart){
+    if (secondElfEnd < firstElfStart) {
         continue;
     }
     uselessElves++;

@@ -2,7 +2,7 @@ const fs = require('fs');
 var path = require('path');
 
 //Relative path to data.txt
-const dataPath = path.join(__dirname, '..', 'day3', 'data.txt');
+const dataPath = path.join(__dirname, 'data.txt');
 const rucksacks = fs.readFileSync(dataPath, 'UTF-8').split(/\r?\n/)
 
 //Hardcoded array of key-value pairs, kindof convoluted,
@@ -68,21 +68,21 @@ console.time("Timer");
 
 var prioritySum = 0;
 //Go trough rucksacks
-for (let i = 0; i < rucksacks.length-1; i+=3) {
-    
-    for(let j = 0; j < rucksacks[i].length; j++){
+for (let i = 0; i < rucksacks.length - 1; i += 3) {
+
+    for (let j = 0; j < rucksacks[i].length; j++) {
         occurances[rucksacks[i][j]][0]++;
     }
-    for(let j = 0; j < rucksacks[i+1].length; j++){
-        occurances[rucksacks[i+1][j]][1]++;
+    for (let j = 0; j < rucksacks[i + 1].length; j++) {
+        occurances[rucksacks[i + 1][j]][1]++;
     }
-    for(let j = 0; j < rucksacks[i+2].length; j++){
-        occurances[rucksacks[i+2][j]][2]++;
+    for (let j = 0; j < rucksacks[i + 2].length; j++) {
+        occurances[rucksacks[i + 2][j]][2]++;
     }
     console.log(i)
-    //Count the final scores
-    for(const property in occurances){
-        if(occurances[property][0]>0 && occurances[property][1]>0 && occurances[property][2]>0){
+        //Count the final scores
+    for (const property in occurances) {
+        if (occurances[property][0] > 0 && occurances[property][1] > 0 && occurances[property][2] > 0) {
             prioritySum += occurances[property][3];
         }
         occurances[property][0] = 0;

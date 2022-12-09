@@ -5,14 +5,17 @@ var path = require('path');
 const dataPath = path.join(__dirname, 'data.txt');
 const stream = fs.readFileSync(dataPath, 'UTF-8')
 
+console.time("timer");
+
 for (let i = 0; i < stream.length - 4; i++) {
     var potentialMarker = stream.substring(i, i + 14);
-    console.log(`Checking ${potentialMarker}`)
     if (checkifStringisUnique(potentialMarker)) {
+        console.timeEnd("timer");
         console.log(i + 14)
         break;
     }
 }
+
 
 function checkifStringisUnique(str) {
     var hash = Object.create(null);
