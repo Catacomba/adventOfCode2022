@@ -12,8 +12,6 @@ console.time("Timer");
 // p B  1 5 9
 // s C  2 6 7
 
-const strat2array = {}
-
 const strat2 = [
     [3, 4, 8],
     [1, 5, 9],
